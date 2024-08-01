@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="home.html"></a>
+    <div class="reg-container">
+        <form onsubmit="">
+            <span>Daftar</span>
+            <div class="input-container">
+                <label for="Username">Username</label>
+                <input name="Username" type="text" name="" id="">
+            </div>
+            <div class="input-container">
+                <label for="E-mail">E-mail</label>
+                <input name="E-mail" type="email" name="" id="">
+            </div>
+            <div class="input-container">
+                <label for="Password">Password</label>
+                <input name="Password" type="password" name="" id="">
+            </div>
+            <button type="submit">Masuk</button>
+        </form>
+        <style>
+            body{
+                margin: 0%;
+                min-width: 100vw;
+                min-height: 100vh ;
+                display: flex;
+                justify-content: center;
+                align-content: center;
+            }
+            .reg-container{
+                border: 0.2vw solid gray;
+                width: 30vw;
+                height: 30vw;
+            }
+            form{
+                flex-direction: column;
+                align-content: center;
+                gap: 30px;
+            }
+            label{
+                width: 40%;
+                height: 100%;
+                box-sizing: border-box;
+            }
+            .input-container{
+                background-color: cadetblue;
+                width: 100%;
+                height: fit-content;
+                margin: 20px 0 20px 0;
+                display: flex;
+                justify-content: center;
+                align-content: center;
+                align-content: center;
+            }
+            .input-container input{
+                outline: none;
+                border: 0.2vw solid black;
+                background-color: rgb(228, 222, 222);
+                height: 40px;
+            }
+        </style>
+    </div>
+</body>
+</html>

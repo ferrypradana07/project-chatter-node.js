@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .custom-button-upload {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.custom-file-label {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.custom-file-label:hover {
+  background-color: #0056b3;
+}
+
+
+</style>
+<body>
+    <div class="custom-button-upload">
+        <input type="file" id="custom-file-input" accept="image/*" hidden>
+        <label for="custom-file-input" class="custom-file-label">Choose Image</label>
+    </div>
+
+    <div class="preview-upload">
+        <input type="file" id="preview-file-input" accept="image/*">
+        <img id="preview-image" src="#" alt="Image Preview" style="display:none;">
+    </div>      
+    <style>
+        .preview-upload {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        }
+
+        #preview-image {
+        margin-top: 10px;
+        max-width: 100%;
+        height: auto;
+        }
+    </style>
+    <div class="icon-upload">
+        <label for="icon-file-input">
+          <i class="fas fa-upload"></i> Upload Image
+        </label>
+        <input type="file" id="icon-file-input" accept="image/*" hidden>
+      </div>
+    <style>
+        .icon-upload {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-upload label {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.icon-upload label i {
+  margin-right: 10px;
+}
+
+.icon-upload label:hover {
+  background-color: #0056b3;
+}
+
+    </style>      
+    <div class="drag-drop-upload" id="drag-drop-area">
+        <p>Drag and drop an image here or click to upload</p>
+        <input type="file" id="drag-drop-file-input" accept="image/*" hidden>
+      </div>
+    <style>
+        .drag-drop-upload {
+  border: 2px dashed #007BFF;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.drag-drop-upload:hover {
+  background-color: #f8f9fa;
+}
+
+.drag-drop-upload p {
+  margin: 0;
+  color: #007BFF;
+}
+
+    </style>      
+</body>
+<script>
+    const dragDropArea = document.getElementById('drag-drop-area');
+const fileInput = document.getElementById('drag-drop-file-input');
+
+dragDropArea.addEventListener('click', () => fileInput.click());
+
+dragDropArea.addEventListener('dragover', (event) => {
+  event.preventDefault();
+  dragDropArea.style.backgroundColor = '#e9ecef';
+});
+
+dragDropArea.addEventListener('dragleave', () => {
+  dragDropArea.style.backgroundColor = '#fff';
+});
+
+dragDropArea.addEventListener('drop', (event) => {
+  event.preventDefault();
+  dragDropArea.style.backgroundColor = '#fff';
+  fileInput.files = event.dataTransfer.files;
+  // You can also add preview or other logic here
+});
+
+    document.getElementById('preview-file-input').addEventListener('change', function(event) {
+        const reader = new FileReader();
+        reader.onload = function() {
+            const img = document.getElementById('preview-image');
+            img.src = reader.result;
+            img.style.display = 'block';
+        };
+        reader.readAsDataURL(event.target.files[0]);
+});
+
+</script>
+</html>
